@@ -1,0 +1,26 @@
+layout {
+	cwd "/home/rino/rustlings"
+    pane split_direction="vertical" {
+        pane size="25%" {
+			name "rustlings watch"
+			command "rustlings"
+			args "watch"
+		}
+        pane split_direction="horizontal" {
+            pane size="70%" {
+                focus true
+				name "helix"
+				//command "hx"
+				//args "exercises/quiz1.rs"
+            }
+            pane {
+				name "rustlings hint"
+				command "rustlings" 
+                args "hint" "next"
+            }
+        }
+    }
+	pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
