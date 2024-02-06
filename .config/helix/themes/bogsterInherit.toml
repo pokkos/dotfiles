@@ -1,0 +1,30 @@
+# Author : Wojciech Kępka <wojciech@wkepka.dev>
+
+inherits = "bogster"
+
+"function.macro" = { fg = "bogster-orange" }
+"comment" = "bogster-base4"
+"string" = "bogster-purp"
+"ui.cursorline" = { bg = "bogster-base2" }
+"ui.selection" = { bg = "#3c6c7c" }
+"ui.cursor.primary" = { bg = "#3c6c7c", modifiers = ["reversed"] }
+"ui.cursor.select" = { bg = "#3c6c7c" }
+"ui.cursor.match" = { bg = "bogster-base3", modifiers = ["underlined"] }
+"ui.cursor" = { bg = "#3c6c7c", modifiers = ["reversed"] }
+"ui.virtual.inlay-hint" = "bogster-base4"
+"ui.virtual.inlay-hint.parameter" = "bogster-base4"
+"ui.virtual.inlay-hint.type" = "bogster-base4"
+
+
+# make diagnostic underlined, to distinguish with selection text.
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.error" = { underline = { style = "curl", color = "red" }}
+"diagnostic.warning" = { underline = { style = "line", color = "bogster-orange" }}
+"diagnostic.info" = { underline = { style = "dashed", color = "bogster-teal" }}
+"diagnostic.hint" = { underline = { style = "dashed", color = "bogster-blue" }}
+
+[palette]
+bogster-lyellow = "#505540"
+bogster-base6 = "#33384e"
+
+bogster-fg0 = "#d0c0b7"
