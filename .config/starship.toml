@@ -1,0 +1,197 @@
+format = """
+[\u250c\u2500](fg:#33DDFF)\
+([\\(](fg:#33DDFF)$username$hostname[\\) \u268b ](fg:#33DDFF))\
+[\\[](fg:#33DDFF)$directory[\\]](fg:#33DDFF) [(\u268b \
+$localip\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$c\
+$cmake\
+$container\
+$java\
+$jobs\
+$kotlin\
+$localip\
+$lua\
+$meson\
+$nodejs\
+$perl\
+$php\
+$python\
+$rlang\
+$ruby\
+$rust\
+)](#AAAAAA)\
+$fill$sudo$character$cmd_duration
+[\u2514⊳](fg:#33DDFF) """
+
+[aws]
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+[bun]
+format = '\[[$symbol($version)]($style)\]'
+
+[c]
+format = '\[[$symbol($version(-$name))]($style)\]'
+
+[character]
+success_symbol = "[✓](bold green)" #u+22b3
+error_symbol = "[✗](bold red)" #u+2717
+#disabled = true
+
+[cmake]
+format = '\[[$symbol($version)]($style)\]'
+
+[cmd_duration]
+format = '\[[⏱ $duration]($style)\]'
+
+[cobol]
+format = '\[[$symbol($version)]($style)\]'
+
+[conda]
+format = '\[[$symbol$environment]($style)\]'
+
+[directory]
+truncate_to_repo = false
+truncation_length = 5
+truncation_symbol = "…/" #u+2026
+format = "[$path]($style)[$read_only]($read_only_style)"
+style = 'fg:#DDDD00'
+read_only = " "
+read_only_style = "red"
+
+[docker_context]
+format = '\[[$symbol$context]($style)\]'
+
+[elixir]
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+[elm]
+format = '\[[$symbol($version)]($style)\]'
+
+[erlang]
+format = '\[[$symbol($version)]($style)\]'
+
+[fill]
+symbol = " "
+
+[git_branch]
+#format = '[\[$symbol$branch\]]($style)'
+format = '\[[$symbol$branch]($style)\]'
+
+[git_commit]
+tag_disabled = false
+
+[git_metrics]
+disabled = true
+#format = " ([+$added]($added_style) )([-$deleted]($deleted_style) )"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style)) '
+ahead = '[⇡${count}](green)'
+diverged = '⇕[⇡${ahead_count}](green)[⇣${behind_count}](red)'
+behind = '[⇣${count}](red)'
+untracked = '[$count untracked ](#DDAA33)'
+#up_to_date = '✓'
+deleted = '$count 🗑'
+style = 'grey'
+
+[git_state]
+disabled = true
+
+[golang]
+format = '\[[$symbol($version)]($style)\]'
+
+[haskell]
+format = '\[[$symbol($version)]($style)\]'
+
+[helm]
+format = '\[[$symbol($version)]($style)\]'
+
+[hg_branch]
+format = '\[[$symbol$branch]($style)\]'
+
+[hostname]
+ssh_only = true
+format = "[@$hostname]($style)"
+#format = "[$ssh_symbol$hostname]($style)"
+style = 'fg:#FFAA00'
+
+[java]
+format = '\[[$symbol($version)]($style)\]'
+
+[julia]
+format = '\[[$symbol($version)]($style)\]'
+
+[kotlin]
+format = '\[[$symbol($version)]($style)\]'
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[lua]
+format = '\[[$symbol($version)]($style)\]'
+
+[memory_usage]
+format = '\[$symbol[$ram( | $swap)]($style)\]'
+
+[nim]
+format = '\[[$symbol($version)]($style)\]'
+
+[nix_shell]
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[nodejs]
+format = '\[[$symbol($version)]($style)\]'
+
+[package]
+format = '\[[$symbol$version]($style)\]'
+style = '208'
+
+[perl]
+format = '\[[$symbol($version)]($style)\]'
+
+[php]
+format = '\[[$symbol($version)]($style)\]'
+
+[python]
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[ruby]
+format = '\[[$symbol($version)]($style)\]'
+
+[rust]
+format = '\[[$symbol($version)]($style)\]'
+#symbol = ' '#\\ue7a8'
+style = 'fg:#33DDFF'
+
+[status]
+disabled = true
+map_symbol = true
+
+[sudo]
+format = '[$symbol]($style)'
+disabled = true
+
+[time]
+format = '\[[$time]($style)\]'
+
+[username]
+format = '[$user]($style)'
+#format = '[\(](green)[$user](blue)[\)](green)'
+show_always = false
+style_user = 'italic fg:#DDDD00'
+
+[vagrant]
+format = '\[[$symbol($version)]($style)\]'
+
+[vlang]
+format = '\[[$symbol($version)]($style)\]'
+
+[zig]
+format = '\[[$symbol($version)]($style)\]'
