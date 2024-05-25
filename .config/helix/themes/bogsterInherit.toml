@@ -5,6 +5,7 @@ inherits = "bogster"
 "function.macro" = { fg = "bogster-orange" }
 "comment" = "bogster-base4"
 "string" = "bogster-purp"
+"ui.bufferline.active" = { fg = "bogster-base1", bg = "bogster-yellow"}
 "ui.cursorline" = { bg = "bogster-base2" }
 "ui.selection" = { bg = "#3c6c7c" }
 "ui.cursor.primary" = { bg = "#3c6c7c", modifiers = ["reversed"] }
@@ -14,6 +15,7 @@ inherits = "bogster"
 "ui.virtual.inlay-hint" = "bogster-base4"
 "ui.virtual.inlay-hint.parameter" = "bogster-base4"
 "ui.virtual.inlay-hint.type" = "bogster-base4"
+"ui.virtual.jump-label" = { fg = "bogster-yellow", bg = "bogster-base6" , modifiers = ["bold"]}
 
 
 # make diagnostic underlined, to distinguish with selection text.

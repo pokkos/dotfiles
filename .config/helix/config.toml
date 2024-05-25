@@ -8,16 +8,20 @@ color-modes = true
 #auto-pairs = false
 idle-timeout = 200
 soft-wrap.enable = true
+popup-border = "all"
+line-number = "relative"
+bufferline = "multiple"
 
 [editor.file-picker]
 hidden = false
 
 [editor.lsp]
 display-inlay-hints = true
+display-messages = true
 
 [editor.statusline]
 separator = "/"
-left = ["mode", "spinner", "file-name", "file-type", "file-encoding"]
+left = ["mode", "spinner", "file-name", "file-type", "file-encoding", "read-only-indicator"]
 center = ["diagnostics", "selections"]
 right = ["position", "separator", "total-line-numbers", "separator", "position-percentage"]
 
@@ -29,6 +33,9 @@ select = "underline"
 [editor.indent-guides]
 render = true
 character = ":"
+
+[editor.smart-tab]
+supersede-menu = true
 
 [editor.whitespace.render]
 space = "none"
