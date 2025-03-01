@@ -1,4 +1,6 @@
-theme = "bogsterInherit"
+# theme = "aoInherit"
+theme = "doom_acario_dark_inherit"
+# theme = "bogsterInherit"
 #theme = "bogster"
 
 [editor]
@@ -11,6 +13,7 @@ soft-wrap.enable = true
 popup-border = "all"
 line-number = "relative"
 bufferline = "multiple"
+end-of-line-diagnostics = "warning"
 
 [editor.file-picker]
 hidden = false
@@ -34,8 +37,11 @@ select = "underline"
 render = true
 character = ":"
 
-[editor.smart-tab]
-supersede-menu = true
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+# [editor.smart-tab]
+# supersede-menu = true
 
 [editor.whitespace.render]
 space = "none"
@@ -51,10 +57,26 @@ tabpad = "·" # Tabs will look like "→···" (depending on tab width)
 
 [keys.normal]
 C-r = ":config-reload"
-C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+J = ["select_line_below"]
+K = ["select_line_above"]
+H = ["select_mode", "goto_line_start", "exit_select_mode"]
+L = ["select_mode", "goto_line_end", "exit_select_mode"]
+C-J = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 F5 = [":sh cargo run"]
-tab = ":toggle line-number absolute relative"
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+# tab = ":toggle line-number absolute relative"
 
 [keys.insert]
-j = { k = "normal_mode" }
+A-l = ["move_char_right"]
+A-h = ["move_char_left"]
+A-k = ["move_visual_line_up"]
+A-j = ["move_visual_line_down"]
+
+[keys.select]
+H = ["goto_line_start"]
+J = ["select_line_below"]
+K = ["select_line_above"]
+L = ["goto_line_end"]
+
