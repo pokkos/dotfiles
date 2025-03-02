@@ -1,7 +1,9 @@
 format = """
-[\u250c\u2500](fg:#33DDFF)\
-([\\(](fg:#33DDFF)$username$hostname[\\) \u268b ](fg:#33DDFF))\
-[\\[](fg:#33DDFF)$directory[\\]](fg:#33DDFF) [(\u268b \
+[\u250c\u2500](fg:#1188aa)\
+([\\(](fg:#1188aa)$username$hostname[\\) \u268b ](fg:#1188aa))\
+[\\[](fg:#1188aa)$directory[\\]](fg:#1188aa) \
+${custom.fish_private}\
+[(\u21e8 \
 $localip\
 $git_branch\
 $git_commit\
@@ -13,6 +15,9 @@ $package\
 $c\
 $cmake\
 $container\
+$go\
+$gradle\
+$haxe\
 $java\
 $jobs\
 $kotlin\
@@ -27,8 +32,8 @@ $rlang\
 $ruby\
 $rust\
 )](#AAAAAA)\
-$fill$sudo$character$cmd_duration
-[\u2514⊳](fg:#33DDFF) """
+$fill$sudo$shell$character$cmd_duration
+[\u2514⊳](fg:#1188aa) """
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -42,6 +47,10 @@ format = '\[[$symbol($version(-$name))]($style)\]'
 [character]
 success_symbol = "[✓](bold green)" #u+22b3
 error_symbol = "[✗](bold red)" #u+2717
+vimcmd_symbol = "[\\[NOR\\]](bold fg:black bg:green)"
+vimcmd_replace_symbol = "[\\[REP\\]](bold fg:black bg:purple)"
+vimcmd_replace_one_symbol = "[\\[Ro\\]](bold fg:black bg:bright-purple)"
+vimcmd_visual_symbol = "[\\[VIS\\]](bold fg:black bg:yellow)"
 #disabled = true
 
 [cmake]
@@ -85,24 +94,26 @@ symbol = " "
 format = '\[[$symbol$branch]($style)\]'
 
 [git_commit]
+only_detached = false
 tag_disabled = false
 
 [git_metrics]
-disabled = true
-#format = " ([+$added]($added_style) )([-$deleted]($deleted_style) )"
+disabled = false
+format = '\([+$added]($added_style) [-$deleted]($deleted_style)\)'
+# format = " ([+$added]($added_style) )([-$deleted]($deleted_style) )"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style)) '
-ahead = '[⇡${count}](green)'
-diverged = '⇕[⇡${ahead_count}](green)[⇣${behind_count}](red)'
-behind = '[⇣${count}](red)'
-untracked = '[$count untracked ](#DDAA33)'
+format = ' ([\($all_status$ahead_behind\)]($style)) '
+ahead = ' [⇡${count}](green)'
+diverged = ' ⇕[⇡${ahead_count}](green)[⇣${behind_count}](red)'
+behind = ' [⇣${count}](red)'
+untracked = '[$count untracked](#DDAA33)'
 #up_to_date = '✓'
-deleted = '$count 🗑'
+deleted = ' $count 🗑'
 style = 'grey'
 
 [git_state]
-disabled = true
+disabled = false
 
 [golang]
 format = '\[[$symbol($version)]($style)\]'
@@ -133,6 +144,10 @@ format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[localip]
+ssh_only = true
+disabled = false
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
@@ -170,6 +185,13 @@ format = '\[[$symbol($version)]($style)\]'
 #symbol = ' '#\\ue7a8'
 style = 'fg:#33DDFF'
 
+[shell]
+fish_indicator = '󰈺'
+zsh_indicator = 'z'
+unknown_indicator = '?'
+style = 'cyan bold'
+disabled = false
+
 [status]
 disabled = true
 map_symbol = true
@@ -195,3 +217,31 @@ format = '\[[$symbol($version)]($style)\]'
 
 [zig]
 format = '\[[$symbol($version)]($style)\]'
+
+[custom.fish_private]
+when = 'test -n "$FISH_PRIVATE_MODE"'
+description = "Indicates that fish shell is in private mode"
+symbol = "﫸 "
+style = "yellow"
+
+[custom.fish_mode_insert]
+command = "echo I"
+# when = ''' test "$fish_bind_mode" = "insert" '''
+when = '[ "$FISH_CURRENT_BIND_MODE" = "insert" ]'
+description = "Indicates that fish shell is in vim insert mode"
+symbol = "I "
+style = "blue"
+
+[custom.fish_mode_normal]
+command = "fish_mode.sh"
+when = true
+# when = 'test "$FISH_CURRENT_BIND_MODE" = "default"'
+description = "Indicates that fish shell is in vim normal mode"
+symbol = "N "
+style = "green"
+
+[custom.fish_mode_visual]
+when = 'test "$fish_bind_mode" = "visual"'
+description = "Indicates that fish shell is in vim visual mode"
+symbol = "V "
+style = "yellow"
