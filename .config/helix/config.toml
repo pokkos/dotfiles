@@ -1,7 +1,4 @@
-# theme = "aoInherit"
 theme = "doom_acario_dark_inherit"
-# theme = "bogsterInherit"
-#theme = "bogster"
 
 [editor]
 cursorline = true

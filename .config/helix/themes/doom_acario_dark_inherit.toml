@@ -1,0 +1,12 @@
+inherits = "doom_acario_dark"
+
+"ui.picker.header.column" = { underline.style = "line" }
+"ui.picker.header.column.active" = { modifiers = ["bold"], underline.style = "line" }
+"ui.text.directory" = { fg = "green" }
+'ui.selection' = { bg = 'brown' }
+"ui.statusline.insert" = { bg = 'orange' }
+"ui.virtual.inlay-hint" = { bg = 'base2' }
+"ui.virtual.jump-label" = { fg = 'white', bg = 'magenta' }
+
+[palette]
+brown = '#483901'
